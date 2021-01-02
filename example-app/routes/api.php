@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("data",[testapi::class,'getData']);
-Route::get("getDevices",[DeviceController::class,'list']);
+Route::get("getDevices/{id?}",[DeviceController::class,'list']);
+Route::post("addDevice",[DeviceController::class,'addDevice']);

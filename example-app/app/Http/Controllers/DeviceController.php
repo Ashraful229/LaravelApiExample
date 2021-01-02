@@ -7,8 +7,23 @@ use App\Models\Device;
 class DeviceController extends Controller
 {
     //
-    function list()
+    function addDevice(Request $req)
     {
-        return Device::all();
+        $device= new Device;
+        $device->name=$req->name;
+        $device->price=$req->price;
+        $result=$device->save();
+        if($result)
+        {
+            return "save data";
+        }
+        else
+        {
+            return "Error to save";
+        }
+    }
+    function list($id=null)
+    {
+        return $id?Device::find($id):Device::all();
     }
 }
