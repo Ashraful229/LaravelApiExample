@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get("data",[testapi::class,'getData']);
 Route::get("getDevices/{id?}",[DeviceController::class,'list']);
 Route::post("addDevice",[DeviceController::class,'addDevice']);
+Route::post("addDevice2",[DeviceController::class,'addDevice2']);
+Route::put("updateDevice",[DeviceController::class,'updateDevice']);
+Route::get("searchDevice/{name}",[DeviceController::class,'searchDevice']);
+Route::delete("deleteDevice/{id}",[DeviceController::class,'deleteDevice']);
